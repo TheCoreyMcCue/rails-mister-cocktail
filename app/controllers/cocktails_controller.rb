@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
+  before_action :set_cocktail, only: %i[show edit update destroy]
   def index
     @cocktails = Cocktail.all
   end
@@ -22,8 +24,7 @@ class CocktailsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     @cocktail.update(cocktail_params)
