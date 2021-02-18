@@ -6,7 +6,7 @@
   <% end %>
   </ul>
 </p>
-<%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_cocktail_path(@cocktail) %>
+<%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+<%= link_to 'Edit', edit_cocktail_path(@cocktail), class: "btn btn-warning" %>
 <%= link_to 'View All Cocktails', cocktails_path %>
 <%= link_to 'Add ingredients', new_cocktail_dose_path(@cocktail) %>
