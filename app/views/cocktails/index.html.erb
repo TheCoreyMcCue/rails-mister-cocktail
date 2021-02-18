@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+      <h1>All Cocktails</h1>
+      <ul>
+      <% @cocktails.each do |cocktail| %>
+      <li>
+          <%= cocktail.name %>
+          <%= link_to 'Show More', cocktail %>
+          <%= link_to 'Delete', cocktail, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+      <% end %>
+      </ul>
+      <%= link_to 'Create a New Cocktail', new_cocktail_path %>
+      </div>
+  </div>
+</div>
