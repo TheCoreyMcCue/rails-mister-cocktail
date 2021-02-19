@@ -1,14 +1,34 @@
 
-
 <div class="container">
-  <strong>Name:</strong>
-  <h1><%= @cocktail.name %></h1>
-  <ul><% @cocktail.doses.each do |dose| %>
-    <li><%= dose.description %> - <%= dose.ingredient.name %></li>
+  <% if @cocktail.photo.attached? %>
+    <div class="card-category" style="background-image: url('<%= cl_image_path @cocktail.photo.key, height: 600, width: 400, crop: :fill %>')">
+        <div class="container">
+          <strong>Name:</strong>
+          <h1><%= @cocktail.name %></h1>
+          <ul><% @cocktail.doses.each do |dose| %>
+            <li><%= dose.description %> - <%= dose.ingredient.name %></li>
+          <% end %>
+          </ul>
+          <%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <%= link_to 'Edit', edit_cocktail_path(@cocktail), class: "btn btn-warning" %>
+          <%= link_to 'View All Cocktails', cocktails_path, class: "btn btn-secondary" %>
+          <%= link_to 'Add ingredients', new_cocktail_dose_path(@cocktail), class: "btn btn-success" %>
+        </div>
+    </div>
+  <% else %>
+    <div class="card-category" style="background-image: url('https://images.unsplash.com/photo-1536935338788-846bb9981813?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2786&q=80')">
+        <div class="container">
+          <strong>Name:</strong>
+          <h1><%= @cocktail.name %></h1>
+          <ul><% @cocktail.doses.each do |dose| %>
+            <li><%= dose.description %> - <%= dose.ingredient.name %></li>
+          <% end %>
+          </ul>
+          <%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+          <%= link_to 'Edit', edit_cocktail_path(@cocktail), class: "btn btn-warning" %>
+          <%= link_to 'View All Cocktails', cocktails_path, class: "btn btn-secondary" %>
+          <%= link_to 'Add ingredients', new_cocktail_dose_path(@cocktail), class: "btn btn-success" %>
+        </div>
+    </div>
   <% end %>
-  </ul>
-  <%= link_to 'Destroy', @cocktail, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-  <%= link_to 'Edit', edit_cocktail_path(@cocktail), class: "btn btn-warning" %>
-  <%= link_to 'View All Cocktails', cocktails_path, class: "btn btn-secondary" %>
-  <%= link_to 'Add ingredients', new_cocktail_dose_path(@cocktail), class: "btn btn-success" %>
 </div>
