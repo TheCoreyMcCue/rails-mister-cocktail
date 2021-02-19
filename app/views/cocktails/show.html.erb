@@ -1,7 +1,8 @@
 
 <div class="container">
   <% if @cocktail.photo.attached? %>
-    <div class="card-category" style="background-image: url('<%= cl_image_path @cocktail.photo.key, height: 600, width: 400, crop: :fill %>')">
+    <div class="card-category" style="background-image: url('<%= cl_image_path @cocktail.photo.key, height: 600, width: 400, crop: :fillgst
+     %>')">
         <div class="container">
           <strong>Name:</strong>
           <h1><%= @cocktail.name %></h1>
